@@ -1,0 +1,3 @@
+repository "Interactionlive2D/Interactionlive2D@14569653236533@cloud"
+  path "/"
+    smartbranch "/main/jiwon"
