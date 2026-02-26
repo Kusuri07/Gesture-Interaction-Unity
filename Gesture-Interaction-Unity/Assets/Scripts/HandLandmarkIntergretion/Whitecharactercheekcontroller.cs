@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Live2D.Cubism.Core;
 using Live2D.Cubism.Framework;
 using Mediapipe.Unity.Sample.HandLandmarkDetection;
@@ -89,21 +89,29 @@ public class WhiteCharacterCheekController : MonoBehaviour
 
     void Start()
     {
-        // 자동 참조 설정
+        // Cubism 사용 시에만 참조 탐색 (프로젝트에 Live2D가 없으면 전부 null로 둠)
         if (cubismModel == null)
             cubismModel = GetComponent<CubismModel>();
+        if (cubismModel == null)
+            cubismModel = GetComponentInParent<CubismModel>();
+        if (cubismModel == null)
+        {
+            var found = FindObjectOfType<CubismModel>(true);
+            if (found != null)
+                cubismModel = found;
+        }
 
         if (mainCamera == null)
             mainCamera = Camera.main;
 
-        // 화면 크기 캐싱
         cachedScreenWidth = Screen.width;
         cachedScreenHeight = Screen.height;
 
-        // Live2D 파라미터 찾기
-        FindLive2DParameters();
+        if (cubismModel != null)
+            FindLive2DParameters();
+        else
+            Debug.Log("[WhiteCharacterCheekController] Cubism 미사용 — Live2D 파라미터 없음. 볼 당기기는 PinchCheekDeformer + DeformableSpriteMesh로 구현하세요.");
 
-        // 초기화
         leftCheek = new CheekData();
         rightCheek = new CheekData();
 
@@ -158,7 +166,7 @@ public class WhiteCharacterCheekController : MonoBehaviour
         CubismParameter paramX,
         CubismParameter paramY)
     {
-        if (collider == null || cheekCenter == null)
+        if (collider == null)
             return;
 
         var dataManager = HandLandmarkDataManager.Instance;
@@ -205,12 +213,8 @@ public class WhiteCharacterCheekController : MonoBehaviour
             // Pinch 중심점 (Thumb + Index 중간) → 월드 좌표
             Vector3 pinchWorldPos = GetPinchWorldPosition(useRightHand);
 
-            // Collider 안에 있는지 확인
-            Vector2 pinchScreen2D = mainCamera.WorldToScreenPoint(pinchWorldPos);
-            Vector3 colliderWorldPos = collider.transform.position;
-            Vector2 colliderScreen2D = mainCamera.WorldToScreenPoint(colliderWorldPos);
-
-            bool isInCollider = collider.OverlapPoint(colliderScreen2D);
+            // Collider 안에 있는지 확인 (월드 좌표 기준)
+            bool isInCollider = collider.OverlapPoint((Vector2)pinchWorldPos);
 
             // Pinch 시작 순간 → 시작 위치 저장
             if (!wasPinching && isInCollider)

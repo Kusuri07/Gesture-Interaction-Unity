@@ -65,10 +65,17 @@ namespace Mediapipe.Unity.Sample.HandLandmarkDetection
                 return;
             }
 
+            int handCount = result.handLandmarks.Count;
+            if (result.handedness == null || result.handedness.Count < handCount)
+            {
+                ClearHandData();
+                return;
+            }
+
             frameCount++;
             if (frameCount % updateInterval != 0) return;
 
-            HandCount = result.handLandmarks.Count;
+            HandCount = handCount;
             LeftHandLandmarks.Clear();
             RightHandLandmarks.Clear();
 
@@ -78,11 +85,10 @@ namespace Mediapipe.Unity.Sample.HandLandmarkDetection
                 if (landmarksContainer.landmarks == null) continue;
                 var actualLandmarks = landmarksContainer.landmarks;
 
-                if (result.handedness == null || i >= result.handedness.Count) continue;
-                var categories = result.handedness[i].categories;
-                if (categories == null || categories.Count == 0) continue;
+                var handednessItem = result.handedness[i];
+                if (handednessItem.categories == null || handednessItem.categories.Count == 0) continue;
 
-                string label = categories[0].categoryName;
+                string label = handednessItem.categories[0].categoryName;
                 bool isLeftHand = label.ToLower().Contains("left");
 
                 if (actualLandmarks.Count > 0)

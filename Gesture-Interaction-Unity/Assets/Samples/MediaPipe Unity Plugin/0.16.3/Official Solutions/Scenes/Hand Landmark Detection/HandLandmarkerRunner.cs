@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2023 homuler
+// Copyright (c) 2023 homuler
 //
 // Use of this source code is governed by an MIT-style
 // license that can be found at the LICENSE file or at
@@ -131,20 +131,26 @@ namespace Mediapipe.Unity.Sample.HandLandmarkDetection
                         if (taskApi.TryDetect(image, imageProcessingOptions, ref result))
                         {
                             _handLandmarkerResultAnnotationController.DrawNow(result);
+                            HandLandmarkDataManager.Instance?.UpdateHandLandmarks(result);
                         }
                         else
                         {
-                            _handLandmarkerResultAnnotationController.DrawNow(default);
+                            var empty = default(HandLandmarkerResult);
+                            _handLandmarkerResultAnnotationController.DrawNow(empty);
+                            HandLandmarkDataManager.Instance?.UpdateHandLandmarks(empty);
                         }
                         break;
                     case Tasks.Vision.Core.RunningMode.VIDEO:
                         if (taskApi.TryDetectForVideo(image, GetCurrentTimestampMillisec(), imageProcessingOptions, ref result))
                         {
                             _handLandmarkerResultAnnotationController.DrawNow(result);
+                            HandLandmarkDataManager.Instance?.UpdateHandLandmarks(result);
                         }
                         else
                         {
-                            _handLandmarkerResultAnnotationController.DrawNow(default);
+                            var empty = default(HandLandmarkerResult);
+                            _handLandmarkerResultAnnotationController.DrawNow(empty);
+                            HandLandmarkDataManager.Instance?.UpdateHandLandmarks(empty);
                         }
                         break;
                     case Tasks.Vision.Core.RunningMode.LIVE_STREAM:
@@ -158,11 +164,11 @@ namespace Mediapipe.Unity.Sample.HandLandmarkDetection
         {
             _handLandmarkerResultAnnotationController.DrawLater(result);
 
-            // ⭐ PNGCheekPinchController에 결과 전달
+            // HandLandmarkDataManager에 결과 전달 → WhiteCharacterCheekController 등이 사용
+            HandLandmarkDataManager.Instance?.UpdateHandLandmarks(result);
+
             if (_pngCheekPinchController != null)
-            {
                 _pngCheekPinchController.ProcessHandLandmarks(result);
-            }
         }
     }
 }

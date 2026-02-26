@@ -585,8 +585,75 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.1, y: 1}
   m_Direction: 0
+--- !u!1 &2100000000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2100000002}
+  - component: {fileID: 2100000001}
+  m_Layer: 0
+  m_Name: cheek_area_R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!70 &2100000001
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100000000}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.1, y: 1}
+  m_Direction: 0
+--- !u!4 &2100000002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100000000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1175291439}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1048990928
 Transform:
   m_ObjectHideFlags: 0
@@ -650,30 +717,7 @@ MonoBehaviour:
   screen: {fileID: 1006057043}
   runningMode: 0
   _handLandmarkerResultAnnotationController: {fileID: 1006057044}
-  _logFingerTips: 1
-  _logFrequency: 10
-  _enableActivationZone: 1
-  _showActivationZoneVisual: 1
-  _activationZoneXMin: 0.3
-  _activationZoneXMax: 0.7
-  _activationZoneYMin: 0.3
-  _activationZoneYMax: 0.7
-  _activationZoneZMin: -0.15
-  _activationZoneZMax: 0.05
-  _enableZoomDetection: 1
-  _zoomDeadzone: 0.02
-  _zoomThreshold: 0.03
-  _zoomCooldownFrames: 15
-  _enableZoomRectResize: 1
-  _rectResizeSpeed: 0.05
-  _rectMinSize: 0.1
-  _rectMaxSize: 0.8
-  _enablePinchDebug: 1
-  _pinchDebugIgnoreActivationZone: 1
-  _pinchStartThreshold3D: 0.06
-  _pinchReleaseThreshold3D: 0.09
-  _pinchLogEveryNFrames: 15
-  _pinchDebugOnGUI: 1
+  _pngCheekPinchController: {fileID: 0}
 --- !u!1 &1175291437
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +734,8 @@ GameObject:
   - component: {fileID: 1175291440}
   - component: {fileID: 1175291444}
   - component: {fileID: 1175291445}
+  - component: {fileID: 2000000001}
+  - component: {fileID: 2000000002}
   m_Layer: 0
   m_Name: mishojo
   m_TagString: Untagged
@@ -885,18 +931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a92229d3ddaafc4bb6fe2a9ad34ece9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boneCheekLeft: {fileID: 1982487901}
-  boneCheekRight: {fileID: 953495743}
-  leftCheekCollider: {fileID: 1982487902}
-  rightCheekCollider: {fileID: 953495744}
-  pinchStartThreshold2D: 0.079
-  pinchReleaseThreshold2D: 0.08
-  maxPullDistance: 0.3
-  smoothTime: 0.06
-  returnSpeed: 0.3
-  mainCamera: {fileID: 1969388816}
-  debugLog: 1
-  debugOnGUI: 1
 --- !u!1 &1209672249
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1209672250}
+  - component: {fileID: 1209672251}
   m_Layer: 0
   m_Name: bone_3
   m_TagString: Untagged
@@ -929,6 +964,27 @@ Transform:
   - {fileID: 1982487901}
   m_Father: {fileID: 1175291439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1209672251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209672249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cadbcc33e3c8649b82117c8929857d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheekArea: {fileID: 2100000001}
+  mainCamera: {fileID: 1969388816}
+  useLeftHand: 1
+  pinchOn: 0.05
+  pinchOff: 0.08
+  maxPullDistance: 1
+  pullSensitivity: 1
+  smoothTime: 0.06
+  debugLog: 1
 --- !u!224 &1229135957 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3259285889726014650, guid: 5713b959e3c77a58fb258133fc8e4aef, type: 3}
@@ -1169,6 +1225,47 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285801508}
   m_Mesh: {fileID: 0}
+
+--- !u!114 &2000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175291437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d54c303a952cbc428a354d87ae25e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMeshFilter: {fileID: 1285801511}
+  gridX: 30
+  gridY: 30
+  shaderOverride: {fileID: 0}
+
+--- !u!114 &2000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175291437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8c39c367fd0eb438ce168b3953b9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1969388816}
+  cheekArea: {fileID: 0}
+  deformableMesh: {fileID: 2000000001}
+  useLeftHand: 0
+  pinchThreshold: 0.04
+  pullStrength: 4
+  returnSpeed: 10
+  softEdgeWorld: 0
+  debugLog: 1
+  cheekCenter: {fileID: 1825240624}
+  cheekRadius: 3
 --- !u!1 &1806680259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,6 +1369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1825240624}
+  - component: {fileID: 1825240625}
   m_Layer: 0
   m_Name: bone_1
   m_TagString: Untagged
@@ -1295,6 +1393,27 @@ Transform:
   - {fileID: 953495743}
   m_Father: {fileID: 1175291439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825240625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825240623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cadbcc33e3c8649b82117c8929857d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheekArea: {fileID: 1048990927}
+  mainCamera: {fileID: 1969388816}
+  useLeftHand: 0
+  pinchOn: 0.05
+  pinchOff: 0.08
+  maxPullDistance: 1
+  pullSensitivity: 1
+  smoothTime: 0.06
+  debugLog: 1
 --- !u!1 &1969388814
 GameObject:
   m_ObjectHideFlags: 0
