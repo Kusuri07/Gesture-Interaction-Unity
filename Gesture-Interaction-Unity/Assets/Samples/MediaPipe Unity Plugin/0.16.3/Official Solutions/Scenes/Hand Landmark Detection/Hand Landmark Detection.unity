@@ -1518,6 +1518,7 @@ GameObject:
   - component: {fileID: 2033075138}
   - component: {fileID: 2033075137}
   - component: {fileID: 2033075139}
+  - component: {fileID: 2033075140}
   m_Layer: 0
   m_Name: LOGO_GIF-ezgif.com-gif-to-sprite-converter
   m_TagString: Untagged
@@ -1637,6 +1638,96 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.7999997, y: 4.8028145}
   m_EdgeRadius: 0
+--- !u!114 &2033075140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033075136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771d5699b34eb7a479b8fb49644a5894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferLeftHand: 0
+  pinchOnThreshold: 0.06
+  pinchOffThreshold: 0.1
+  followSpeed: 15
+  cam: {fileID: 1969388816}
+  frames:
+  - {fileID: -1108113226, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 522685829, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -265635840, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1143118932, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -436355102, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1766716616, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 506512945, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1864967456, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 2120625029, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 808064715, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1259505265, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1487683992, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1321451503, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 922415434, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -610005311, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1713598235, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1594330511, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1080259776, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -851581330, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1598622223, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 514402494, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 420192596, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1209052056, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1895191466, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1006588358, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -184480177, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1836113150, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1865184739, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 340299492, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1292227990, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1170108907, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 667192412, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 552282148, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1746954409, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -976304143, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -428476893, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 649287020, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 145315039, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -2076765708, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 428755366, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 2016481795, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -360029610, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1972539897, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 795248187, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1308736103, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -800210147, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1219376758, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1935097929, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 917526120, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1304259306, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1626961784, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -879690603, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1101573267, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -207436131, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 601550458, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 545680315, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -490646231, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1088501382, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 91719378, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -344008785, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 221932532, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 495392756, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 2058018864, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -599974394, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1817708641, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1329137213, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 1825790940, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -1695886175, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: 733261215, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  - {fileID: -2010938798, guid: 20719813283b0b5408258d8649cd9320, type: 3}
+  fps: 11.9
+  debugLog: 0
 --- !u!1 &2039575551
 GameObject:
   m_ObjectHideFlags: 0
