@@ -55,7 +55,7 @@ namespace Mediapipe.Unity.Sample.HandLandmarkDetection
 
             // Use RGBA32 as the input format.
             // TODO: When using GpuBuffer, MediaPipe assumes that the input format is BGRA, so maybe the following code needs to be fixed.
-            _textureFramePool = new Experimental.TextureFramePool(imageSource.textureWidth, imageSource.textureHeight, TextureFormat.RGBA32, 10);
+            _textureFramePool = new Experimental.TextureFramePool(imageSource.textureWidth, imageSource.textureHeight, TextureFormat.RGBA32, 30);
 
             // NOTE: The screen will be resized later, keeping the aspect ratio.
             screen.Initialize(imageSource);
